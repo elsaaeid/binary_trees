@@ -13,7 +13,7 @@ size_t binary_tree_size(const binary_tree_t *tree);
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
-	heap_t *tree, *new, *flip;
+	heap_t *tree, *new_node, *flip;
 	int size, leaves, sub, bit, level, tmp;
 
 	if (!root)
@@ -30,19 +30,19 @@ heap_t *heap_insert(heap_t **root, int value)
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
 		tree = leaves & bit ? tree->right : tree->left;
 
-	new = binary_tree_node(tree, value);
-	leaves & 1 ? (tree->right = new) : (tree->left = new);
+	new_node = binary_tree_node(tree, value);
+	leaves & 1 ? (tree->right = new_node) : (tree->left = new_node);
 
-	flip = new;
+	flip = new_node;
 	for (; flip->parent && (flip->n > flip->parent->n); flip = flip->parent)
 	{
 		tmp = flip->n;
 		flip->n = flip->parent->n;
 		flip->parent->n = tmp;
-		new = new->parent;
+		new_node = new_node->parent;
 	}
 
-	return (new);
+	return (new_node);
 }
 
 /**
