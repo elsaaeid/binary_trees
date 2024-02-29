@@ -8,6 +8,7 @@ size_t binary_tree_size(const binary_tree_t *tree);
  *
  * @root: A double pointer to the root node of the Heap to insert the value.
  * @value: The value to store in the node to be inserted.
+ * @parent: A pointer to the parent of the node.
  *
  * Return: A pointer to the created node, or NULL on failure.
  */
@@ -19,7 +20,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	if (!root)
 		return (NULL);
 	if (!(*root))
-		return (*root = binary_tree_node(root, value));
+		return (*root = binary_tree_node(parent, value));
 
 	tree = *root;
 	size = binary_tree_size(tree);
