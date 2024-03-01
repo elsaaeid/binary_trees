@@ -19,7 +19,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	if (root == NULL)
 		return (NULL);
 
-     if (*root == NULL)
+     if (*root != NULL)
     {
         *root = binary_tree_node(NULL, value);
         return (*root);
