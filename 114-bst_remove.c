@@ -72,7 +72,7 @@ bst_t *bst_delete(bst_t *root, bst_t *node)
 		free(node);
 		return (parent == NULL ? node->left : root);
 	}
-    
+
 	successor = inorder_successor(node->right);
 	node->n = successor->n;
 
