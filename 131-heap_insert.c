@@ -18,12 +18,8 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	if (root == NULL)
 		return (NULL);
-
-     if (*root == NULL)
-    {
-        *root = binary_tree_node(NULL, value);
-        return (*root);
-    }
+	if (!(*root))
+		return (*root = binary_tree_node(NULL, value));
 
 	tree = *root;
 	size = binary_tree_size(tree);
