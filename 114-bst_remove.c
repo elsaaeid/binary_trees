@@ -28,7 +28,7 @@ bst_t *bst_remove(bst_t *root, int value)
  */
 bst_t *bst_remove_recursive(bst_t *root, bst_t *node, int value)
 {
-	if (node != NULL)
+	if (node)
 	{
 		if (node->n == value)
 			return (bst_delete(root, node));
